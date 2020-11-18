@@ -89,7 +89,7 @@ class FlightAwareRequest<Fetched> where Fetched: Codable, Fetched: Hashable {
     // (which will schedule the next fetch if appropriate)
     func fetch(useCache: Bool = true) {
         if !useCache || !fetchFromCache() {
-            if let urlRequest = self.urlRequest {
+            if let urlRequest = urlRequest {
                 print("fetching \(urlRequest)")
                 if offset == 0 { fetchSequenceCount = 0 }
                 fetchCancellable = URLSession.shared.dataTaskPublisher(for: urlRequest)
@@ -165,9 +165,9 @@ class FlightAwareRequest<Fetched> where Fetched: Codable, Fetched: Hashable {
     }
 
     private func cache(_ results: Set<Fetched>) {
-        if let key = self.cacheKey, let data = try? JSONEncoder().encode(results) {
+        if let key = cacheKey, let data = try? JSONEncoder().encode(results) {
             print("caching \(key) at \(DateFormatter.short.string(from: Date.currentFlightTime))")
-            UserDefaults.standard.set(Date.currentFlightTime.timeIntervalSince1970, forKey: self.cacheTimestampKey)
+            UserDefaults.standard.set(Date.currentFlightTime.timeIntervalSince1970, forKey: cacheTimestampKey)
             UserDefaults.standard.set(data, forKey: key)
         }
     }

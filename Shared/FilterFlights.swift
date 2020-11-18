@@ -28,19 +28,22 @@ struct FilterFlights: View {
             Form {
                 Picker("Destination", selection: $draft.destination) {
                     ForEach(allAirports.codes, id: \.self) { airport in
-                        Text("\(self.allAirports[airport]?.friendlyName ?? airport)").tag(airport)
+                        Text("\(allAirports[airport]?.friendlyName ?? airport)").tag(airport)
                     }
                 }
+                // Change the style
+//                .pickerStyle(WheelPickerStyle())
                 Picker("Origin", selection: $draft.origin) {
                     Text("Any").tag(String?.none)
+                    // Make the string an optional string so the picker will work
                     ForEach(allAirports.codes, id: \.self) { (airport: String?) in
-                        Text("\(self.allAirports[airport]?.friendlyName ?? airport ?? "Any")").tag(airport)
+                        Text("\(allAirports[airport]?.friendlyName ?? airport ?? "Any")").tag(airport)
                     }
                 }
                 Picker("Airline", selection: $draft.airline) {
                     Text("Any").tag(String?.none)
                     ForEach(allAirlines.codes, id: \.self) { (airline: String?) in
-                        Text("\(self.allAirlines[airline]?.friendlyName ?? airline ?? "Any")").tag(airline)
+                        Text("\(allAirlines[airline]?.friendlyName ?? airline ?? "Any")").tag(airline)
                     }
                 }
                 Toggle(isOn: $draft.inTheAir) { Text("Enroute Only") }
@@ -51,15 +54,17 @@ struct FilterFlights: View {
     }
 
     var cancel: some View {
-        Button("Cancel") {
-            self.isPresented = false
-        }
+        Button(action: { isPresented = false},
+               label: { Text("Cancel") }
+        )
     }
     var done: some View {
-        Button("Done") {
-            self.flightSearch = self.draft
-            self.isPresented = false
-        }
+        Button(action: {
+                flightSearch = draft
+                isPresented = false
+        },
+               label: { Text("Done") }
+        )
     }
 }
 

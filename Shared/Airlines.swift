@@ -10,9 +10,10 @@ import Combine
 
 // a (shared) ViewModel that supplies info about all known airlines
 // see Airports for more commentary on this (since it's almost identical)
-// TODO: share code with Airports object?
 
 class Airlines: ObservableObject {
+    // swiftlint:disable:next todo
+    // TODO: share code with Airports object?
     static let all: Airlines = Airlines()
 
     var codes: [String] { AirlineInfoRequest.all.compactMap { $0.code }.sorted() }

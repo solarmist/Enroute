@@ -28,11 +28,10 @@ struct FlightsEnrouteView: View {
     @State private var showFilter = false
 
     var filter: some View {
-        Button("Filter") {
-            self.showFilter = true
-        }
-        .sheet(isPresented: $showFilter) {
-            FilterFlights(flightSearch: self.$flightSearch, isPresented: self.$showFilter)
+        Button(action: { showFilter = true },
+               label: { Text("Filter") })
+            .sheet(isPresented: $showFilter) {
+                FilterFlights(flightSearch: $flightSearch, isPresented: $showFilter)
         }
     }
 
@@ -50,7 +49,7 @@ struct FlightList: View {
     @ObservedObject var flightFetcher: FlightFetcher
 
     init(_ flightSearch: FlightSearch) {
-        self.flightFetcher = FlightFetcher(flightSearch: flightSearch)
+        flightFetcher = FlightFetcher(flightSearch: flightSearch)
     }
 
     var flights: [FAFlight] { flightFetcher.latest }

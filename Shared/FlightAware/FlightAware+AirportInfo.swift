@@ -50,8 +50,6 @@ struct AirportInfo: Codable, Hashable, Identifiable, Comparable {
     static func < (lhs: AirportInfo, rhs: AirportInfo) -> Bool { lhs.id < rhs.id }
 }
 
-// TODO: share code with AirlineInfoRequest
-
 class AirportInfoRequest: FlightAwareRequest<AirportInfo>, Codable {
     private(set) var airport: String?
 
@@ -61,6 +59,8 @@ class AirportInfoRequest: FlightAwareRequest<AirportInfo>, Codable {
 
     var info: AirportInfo? { results.value.first }
 
+    // swiftlint:disable:next todo
+    // TODO: share code with AirlineInfoRequest.  The block is the static vars on the classes
     private static var requests = [String: AirportInfoRequest]()
     private static var cancellables = [AnyCancellable]()
 

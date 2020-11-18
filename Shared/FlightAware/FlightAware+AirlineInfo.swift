@@ -30,11 +30,11 @@ struct AirlineInfo: Codable, Hashable, Identifiable, Comparable {
     static func < (lhs: AirlineInfo, rhs: AirlineInfo) -> Bool { lhs.id < rhs.id }
 }
 
-// TODO: share code with AirportInfoRequest
-
 class AirlineInfoRequest: FlightAwareRequest<AirlineInfo>, Codable {
     private(set) var airline: String?
 
+    // swiftlint:disable:next todo
+    // TODO: share code with AirportInfoRequest
     static var all: [AirlineInfo] {
         requests.values.compactMap({ $0.results.value.first }).sorted()
     }

@@ -19,17 +19,17 @@ extension Data {
 
 extension String {
     var trim: String {
-        var trimmed = self.drop(while: { $0.isWhitespace })
+        var trimmed = drop(while: { $0.isWhitespace })
         while trimmed.last?.isWhitespace ?? false {
             trimmed = trimmed.dropLast()
         }
         return String(trimmed)
     }
 
-    var base64: String? { self.data(using: .utf8)?.base64EncodedString() }
+    var base64: String? { data(using: .utf8)?.base64EncodedString() }
 
     func contains(elementIn array: [String]) -> Bool {
-        array.contains(where: { self.contains($0) })
+        array.contains(where: { contains($0) })
     }
 }
 
@@ -78,6 +78,6 @@ extension DateFormatter {
 
 extension DateComponents {
     func isSameDay(as other: DateComponents) -> Bool {
-        return self.year == other.year && self.month == other.month && self.day == other.day
+        return year == other.year && month == other.month && day == other.day
     }
 }
