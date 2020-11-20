@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E317620256882A200DB59CD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E31761F256882A200DB59CD /* MapView.swift */; };
 		7E3838E725670B2D005CF0BD /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3838E125670B2D005CF0BD /* Airport+CoreDataClass.swift */; };
 		7E3838E825670B2D005CF0BD /* Airport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3838E225670B2D005CF0BD /* Airport+CoreDataProperties.swift */; };
 		7E5DFC4725670026001B66E2 /* Enroute.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E5DFC4525670026001B66E2 /* Enroute.xcdatamodeld */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E31761F256882A200DB59CD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		7E3838E125670B2D005CF0BD /* Airport+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7E3838E225670B2D005CF0BD /* Airport+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7E5DFC4625670026001B66E2 /* Enroute.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Enroute.xcdatamodel; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				DAB658AA2467944B00A0F2BB /* FlightsEnrouteView.swift */,
 				7E5DFC4925670058001B66E2 /* Persistence.swift */,
 				EC48CF55246B289C00F59507 /* FilterFlights.swift */,
+				7E31761F256882A200DB59CD /* MapView.swift */,
 				DA47A9B52469D48900C8E13C /* FlightFetcher.swift */,
 				DA47A9B22469D48100C8E13C /* Airports.swift */,
 				DA47A9B12469D48100C8E13C /* Airlines.swift */,
@@ -273,6 +276,7 @@
 				7E7CF62A256715D50050DA11 /* Flight.swift in Sources */,
 				DA47A9B32469D48100C8E13C /* Airlines.swift in Sources */,
 				DA47A9B42469D48100C8E13C /* Airports.swift in Sources */,
+				7E317620256882A200DB59CD /* MapView.swift in Sources */,
 				EC48CF56246B289C00F59507 /* FilterFlights.swift in Sources */,
 				7E3838E825670B2D005CF0BD /* Airport+CoreDataProperties.swift in Sources */,
 			);

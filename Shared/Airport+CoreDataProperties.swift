@@ -9,9 +9,18 @@
 
 import CoreData
 import Combine
+import MapKit
 
 // Generated code from XCode for the model
 // https://blckbirds.com/post/core-data-and-swiftui/
+
+extension Airport: MKAnnotation {
+    public var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(latitude, longitude)
+    }
+    public var title: String? { name ?? icao }
+    public var subtitle: String? { location }
+}
 
 extension Airport {
 
